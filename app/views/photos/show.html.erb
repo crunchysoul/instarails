@@ -2,12 +2,8 @@
 <p>Address: <%= @photo.location %></p>
 <p>Coordinates: <%= @photo.latitude %> <%= @photo.longitude %></p>
 
-
-
-
-
-
-
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@photo.latitude},#{@photo.longitude}&markers=#{@photo.latitude},#{@photo.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+              class: 'img-fluid img-rounded', alt: "#{@photo.user.email} on the map"%>
 
 
 <p id="notice"><%= notice %></p>
