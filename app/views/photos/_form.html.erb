@@ -22,8 +22,9 @@
   </div>
 
   <div class="field">
-    <%= form.label :location %>
+    <%= form.label :location, 'Location' %>
     <%= form.text_area :location, id: :photo_location %>
+    <small class="text-muted">You can also enter IP. Your IP is <%= request.ip %></small>
   </div>
 
   <div class="actions">

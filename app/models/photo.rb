@@ -5,6 +5,10 @@ class Photo < ApplicationRecord
   has_and_belongs_to_many :likers, class_name: 'User', join_table: :likes
   has_many :comments
 
+  geocoded_by :location   # can also be an IP address
+  # after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
+  
   # group_photo.liked_by?(jo)
   def liked_by?(user)
     likers.exists?(user.id)
