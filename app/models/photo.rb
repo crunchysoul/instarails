@@ -3,6 +3,7 @@ class Photo < ApplicationRecord
 
   belongs_to :user
   has_and_belongs_to_many :likers, class_name: 'User', join_table: :likes
+  has_many :comments
 
   # group_photo.liked_by?(jo)
   def liked_by?(user)
@@ -17,3 +18,12 @@ class Photo < ApplicationRecord
     end
   end
 end
+
+
+
+# photo = Photo.first
+# all_people_who_liked_that_photo = photo.likers
+#
+# other_person = User.second
+# photo.likers << other_person
+# photo.likers.destroy(other_person)

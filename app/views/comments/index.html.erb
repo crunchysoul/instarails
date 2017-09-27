@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <%= link_to 'Back', @photo %>
+  <h1>Comments</h1>
+</nav>
+
+<p id="notice"><%= notice %></p>
+
+<!-- <table> -->
+<!--   <tbody> -->
+<!--     <% @comments.each do |comment| %> -->
+<!--       <%= render comment, photo: @photo %> -->
+<!--     <% end %> -->
+<!--   </tbody> -->
+<!-- </table> -->
+
+<section>
+  <%= render @comments, photo: @photo %>
+</section>
+
+<br>
+
+<h2>New Comment:</h2>
+<%= render 'form', comment: @new_comment %>
