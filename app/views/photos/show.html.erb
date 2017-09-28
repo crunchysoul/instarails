@@ -4,7 +4,7 @@
 
 <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@photo.latitude},#{@photo.longitude}&markers=#{@photo.latitude},#{@photo.longitude}&zoom=7&size=640x400&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
               class: 'img-fluid img-rounded', alt: "#{@photo.user.email} on the map"%>
-
+</iframe>
 
 <p id="notice"><%= notice %></p>
 
@@ -25,9 +25,11 @@
   <%= f.button liked ? 'Unlike' : 'Like' %>
 <% end %>
 
+<%= link_to 'Comment', photo_comments_path(@photo) %> ·
+<%= link_to 'Direct Message', photo_comments_path(@photo) %> ·
+
 <% if current_user == @photo.user %>
   <%= link_to 'Edit', edit_photo_path(@photo) %> ·
   <%= link_to 'Destroy', @photo, method: :delete, data: { confirm: 'Are you sure?' } %> ·
-  <%= link_to 'Comment', photo_comments_path(@photo) %> ·
 <% end %>
 <%= link_to 'Back', photos_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   root 'landing#index'
 
   devise_for :users
